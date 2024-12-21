@@ -1,1 +1,14 @@
 /* Write your CSS code here. */
+.feedback-app {
+    background-image: linear-gradient(to right, #ffeeee, #ffc0bb);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.card {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
