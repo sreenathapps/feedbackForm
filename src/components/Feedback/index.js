@@ -1,30 +1,41 @@
 import React from 'react'
 
-const Emoji = emoji => (
-  <div className="emoji-container">
-    <img src={emoji.imageUrl} alt={emoji.name} />
-    <p className="emoji-title">{emoji.name}</p>
-  </div>
-)
+const Emoji = emoji => {
+  const {name, imageUrl} = emoji
+  return (
+    <li className="emoji-container">
+      <img src={imageUrl} alt={name} />
+      <p className="emoji-title">{name}</p>
+    </li>
+  )
+}
 
-const EmojiCard = emojis => (
-  <div className="container">
-    <h1 className="heading">
-      How satisfied are you with our customer support performance?
-    </h1>
-    {emojis.map(each => (
-      <Emoji emoji={each} />
-    ))}
-  </div>
-)
+const EmojiCard = props => {
+  const {resources} = props
+
+  const {emojis} = resources
+  console.log(emojis)
+  return (
+    <div className="container">
+      <h1 className="heading">
+        How satisfied are you with our customer support performance?
+      </h1>
+      <ul>
+        {emojis.map(each => (
+          <Emoji key={each.id} emoji={each} />
+        ))}
+      </ul>
+    </div>
+  )
+}
 
 export const Feedback = props => {
-  const {emojis} = props
+  const {resources} = props
 
   return (
     <div className="feedback-app">
       <div className="card">
-        <EmojiCard emojis={emojis} />
+        <EmojiCard resources={resources} />
       </div>
     </div>
   )
